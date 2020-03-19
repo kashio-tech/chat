@@ -1,0 +1,18 @@
+<p>index</p>
+<div class="container">
+	<h1>スレッド一覧</h1>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>タイトル</th>
+			</tr>
+		</thead>
+		<% @post_threads.each do |thread| %>
+		<tbody>
+			<tr>
+				<td><%= link_to thread.title, post_thread_path(thread.id)  %></td>
+			</tr>
+		</tbody>
+		<% end %>
+	</table>
+</div>

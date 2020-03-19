@@ -1,0 +1,11 @@
+<p>show</p>
+<div class="container">
+    <h1>
+        <%= @post_thread.title %>
+    </h1>
+    <li class="list-group">
+    <%= @post_thread.created_at.strftime('%m月%d日 %H:%M:%S') %>
+    <%= "user.id#{@post_thread.user_id}" %><br>
+    <%= @post_thread.comment %>
+    </li>
+</div>
