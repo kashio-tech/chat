@@ -1,13 +1,32 @@
-<p>show</p>
 <div class="container">
     <h1>
         <%= @post_thread.title %>
     </h1>
-    <li class="list-group">
-    <%= @post_thread.created_at.strftime('%m月%d日 %H:%M:%S') %>
-    <%= "user.id#{@post_thread.user_id}" %><br>
-    <%= @post_thread.comment %>
-    <%#= attachment_image_tag @post_thread, :image, :fill, 100, 100, format :"jpg" %>
-    <%= attachment_image_tag @post_thread, :image, :width => '100', :height => '100', format: "jpg" %>
-    </li>
+    <div class="row">
+        <div class="col-lg-10">
+            <ul>
+                <li class="list-group-item clearfix">
+                    <%= @post_thread.created_at.strftime('%m月%d日 %H:%M:%S') %>
+                    <i class="float-right"><%= "user.id#{@post_thread.user_id}" %></i><br>
+                    <%= @post_thread.comment %>
+                    <i class="float-right"><%= attachment_image_tag @post_thread, :image, :width => '100', :height => '100', format: "jpg" %></i>
+                </li>
+                <% @post_thread.post_comments.each do |comment| %>
+                <li class="list-group-item  clearfix">
+                    <%= comment.created_at.strftime('%m月%d日 %H:%M:%S') %>
+                    <i class="float-right"><%= "user.id#{comment.user.id}" %></i><br>
+                    <%= comment.comment %>
+                    <%= attachment_image_tag comment, :image, :width => '100', :height => '100', format: "jpg", class: "float-right" %>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="col-lg-2">
+            <%= form_for [@post_thread, @post_comment] do |f| %>
+            <%= f.text_area :comment, class: "form-control mb-1", placeholder: "コメント" %>
+            <%= f.attachment_field :image %>
+            <%= f.submit "コメント作成", class: "btn btn-primary mt-1" %>
+            <% end %>
+        </div>
+    </div>
 </div>

@@ -1,6 +1,7 @@
-<p>index</p>
 <div class="container">
 	<h1>スレッド一覧</h1>
+	<div class="row">
+
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -10,9 +11,10 @@
 		<% @post_threads.each do |thread| %>
 		<tbody>
 			<tr>
-				<td><%= link_to thread.title, post_thread_path(thread.id)  %></td>
+				<td><%= link_to thread.title, post_thread_path(thread.id) %><i class="float-right"><%= "コメント：#{thread.post_comments.count}" %></i></td>
 			</tr>
 		</tbody>
 		<% end %>
 	</table>
+	</div>
 </div>

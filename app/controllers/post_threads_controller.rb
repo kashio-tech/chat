@@ -14,6 +14,7 @@ class PostThreadsController < ApplicationController
 	end
 	def show
 		@post_thread = PostThread.find(params[:id])
+		@post_comment =PostComment.new
 	end
 
 
