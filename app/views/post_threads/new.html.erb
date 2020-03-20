@@ -1,12 +1,11 @@
-<p>new</p>
 <div class="container">
-    <h1>スレッド作成</h1>
+    <h1 class="mb-4">スレッド作成</h1>
     <%= form_for(@post_thread) do |f| %>
-    <p>タイトル</p>
-    <%= f.text_field :title, placeholder: "Title" %>
-    <p>コメント</p>
-    <%= f.text_area :comment, placeholder: "Comment" %>
-    <p>画像</p>
+    <h4>タイトル</h4>
+    <%= f.text_field :title, placeholder: "Title", class: "form-control mb-3" %>
+    <h4>コメント</h4>
+    <%= f.text_area :comment, placeholder: "Comment", class: "form-control mb-3" %>
+    <h4>画像</h4>
     <%= f.attachment_field :image %>
     <%= f.submit "作成", class: "btn btn-primary" %>
     <% end %>

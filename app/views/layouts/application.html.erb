@@ -31,9 +31,9 @@
                     <li class="nav-item">
                         <%= link_to "   Logout", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt mr-4 text-dark" %>
                     </li>
-                    <!--                     <li>
-                        <%#= render 'layouts/search' %>
-                    </li> -->
+                    <li>
+                        <%= render 'layouts/search', search: @search %>
+                    </li>
                 </ul>
                 <!-- ログインしていない時 -->
                 <% else %>
@@ -45,9 +45,6 @@
                     <li>
                         <%= link_to "   Login", new_user_session_path, class: 'fas fa-sign-in-alt mr-4 text-dark' %>
                     </li>
-                    <!--                     <li>
-                        <%#= render 'layouts/search' %>
-                    </li> -->
                 </ul>
                 <% end %>
             </form>

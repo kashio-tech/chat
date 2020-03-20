@@ -70,3 +70,4 @@ gem 'pry-byebug'
 #画像投稿
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'ransack'

@@ -1,6 +1,7 @@
 class PostThreadsController < ApplicationController
+	before_action :authenticate_user!
 	def index
-		@post_threads = PostThread.all
+		#@post_threads = PostThread.all
 	end
 	def new
 		@post_thread = PostThread.new
@@ -15,8 +16,9 @@ class PostThreadsController < ApplicationController
 	def show
 		@post_thread = PostThread.find(params[:id])
 		@post_comment =PostComment.new
+		@search = PostThread.ransack(params[:q])
+	  	@post_threads = @search.result(distinct: true)
 	end
-
 
 	private
 	def post_thread_params
