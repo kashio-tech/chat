@@ -1,0 +1,2 @@
+class PostThreadCategoryRelation < ApplicationRecord
+end
