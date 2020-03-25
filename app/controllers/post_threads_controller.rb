@@ -22,6 +22,6 @@ class PostThreadsController < ApplicationController
 
 	private
 	def post_thread_params
-		params.require(:post_thread).permit(:title, :comment, :image)
+		params.require(:post_thread).permit(:title, :comment, :image, category_ids: [])
 	end
 end
