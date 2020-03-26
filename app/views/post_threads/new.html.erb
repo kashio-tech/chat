@@ -9,7 +9,7 @@
     <%= f.attachment_field :image %>
 
     <h4>カテゴリー</h4>
-    <%= f.collection_check_boxes(category_ids, category.all, :id, :name) do |category| %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |category| %>
     <%= category.label do %>
     <%= category.check_box %>
     <%= category.text %>
