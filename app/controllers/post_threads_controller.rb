@@ -5,6 +5,7 @@ class PostThreadsController < ApplicationController
 	end
 	def new
 		@post_thread = PostThread.new
+		binding.pry
 		@post_thread.post_thread_category_relations.build
 		@user = current_user
 	end
